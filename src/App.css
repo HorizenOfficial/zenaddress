@@ -1,0 +1,275 @@
+html {
+    width:100%;
+    min-width: 850px;
+    height: 100%;
+    background-color: #F7F7F7;
+}
+
+body {
+    background: black url("bg.jpg") center center repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#layout {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+#header {
+    font-weight: bold;
+}
+
+#body {
+    text-align: center;
+    width: 100%;
+}
+
+#footer {
+    background-color: #F7F7F7;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.max-width {
+    word-break: break-all;
+}
+
+
+@media screen {
+    .print-only {
+        display: none;
+    }
+
+    #art-area {
+        background-image: url("zen_paper_front_sm.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 746px;
+        height: 245px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    #art-area>#addr-QR {
+        position: relative;
+        display: block;
+        left: 36.5%;
+        top: 31%;
+    }
+
+    #art-area>#wif-QR {
+        position: relative;
+        display: block;
+        left: -40%;
+        top: -21%;
+    }
+
+    #art-area>#addr-str1 {
+        position: relative;
+        display: block;
+        left: 33.5%;
+        top: 48.5%;
+
+        font-size: 0.66em;
+    }
+    #art-area>#addr-str2 {
+        position: relative;
+        display: block;
+        left: 33.5%;
+        top: -41.5%;
+
+        font-size: 0.66em;
+        -webkit-transform: rotate(-180deg);
+        -moz-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+
+    #art-area>#wif-str1 {
+        position: relative;
+        display: block;
+        left: -29.5%;
+        top: -14%;
+
+        font-size: 0.46em;
+    }
+    #art-area>#wif-str2 {
+        position: relative;
+        display: block;
+        left: -29.5%;
+        top: -80%;
+
+        font-size: 0.46em;
+        -webkit-transform: rotate(-180deg);
+        -moz-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+}
+
+@media print {
+    @page {
+        size: landscape;
+        margin: 0%;
+    }
+
+    #header, #footer, .nav, hr, .r1, .r3, h2 {
+        display: none;
+    }
+
+    #layout {
+        display: block;
+    }
+
+    #art1, #art2 {
+        width: 100% !important;
+        height: 100% !important;
+        margin: auto;
+    }
+
+    #art-area {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+
+    #art-area>#addr-QR {
+        position: relative;
+        display: block;
+        left: 31%;
+        top: 21%;
+    }
+    #art-area>#addr-QR>svg {
+        width: 12vw !important;
+        height: 12vw !important;
+    }
+
+    #art-area>#wif-QR {
+        position: relative;
+        display: block;
+        left: -36.5%;
+        top: 11%;
+    }
+    #art-area>#wif-QR>svg {
+        width: 11vw !important;
+        height: 11vw !important;
+    }
+
+    #art-area>#addr-str1 {
+        position: relative;
+        display: block;
+        left: 28.65%;
+        top: 24.3%;
+        font-size: 1.1vw;
+    }
+    #art-area>#addr-str2 {
+        position: relative;
+        display: block;
+        left: 28.65%;
+        top: 7%;
+        font-size: 1.1vw;
+        -webkit-transform: rotate(-180deg) !important;
+        -moz-transform: rotate(-180deg) !important;
+        -o-transform: rotate(-180deg) !important;
+        -ms-transform: rotate(-180deg) !important;
+        transform: rotate(-180deg) !important;
+    }
+
+    #art-area>#wif-str1 {
+        position: relative;
+        display: block;
+        left: -27.1%;
+        top: 12.55%;
+        font-size: 0.76vw;
+    }
+    #art-area>#wif-str2 {
+        position: relative;
+        display: block;
+        left: -27.1%;
+        top: 0%;
+        font-size: 0.76vw;
+        -webkit-transform: rotate(-180deg) !important;
+        -moz-transform: rotate(-180deg) !important;
+        -o-transform: rotate(-180deg) !important;
+        -ms-transform: rotate(-180deg) !important;
+        transform: rotate(-180deg) !important;
+    }
+
+    @-moz-document url-prefix() {
+        #art-area>#addr-QR {
+            position: relative;
+            display: block;
+            left: 31%;
+            top: 42%;
+        }
+        #art-area>#addr-QR>svg {
+            width: 12vw !important;
+            height: 12vw !important;
+        }
+
+        #art-area>#wif-QR {
+            position: relative;
+            display: block;
+            left: -36.5%;
+            top: 21.5%;
+        }
+        #art-area>#wif-QR>svg {
+            width: 11vw !important;
+            height: 11vw !important;
+        }
+
+        #art-area>#addr-str1 {
+            position: relative;
+            display: block;
+            left: 28%;
+            top: 48.4%;
+            font-size: 1.1vw;
+        }
+        #art-area>#addr-str2 {
+            position: relative;
+            display: block;
+            left: 28%;
+            top: 13.5%;
+            font-size: 1.1vw;
+            -webkit-transform: rotate(-180deg) !important;
+            -moz-transform: rotate(-180deg) !important;
+            -o-transform: rotate(-180deg) !important;
+            -ms-transform: rotate(-180deg) !important;
+            transform: rotate(-180deg) !important;
+        }
+
+        #art-area>#wif-str1 {
+            position: relative;
+            display: block;
+            left: -27.25%;
+            top: 24.22%;
+            font-size: 0.77vw;
+        }
+        #art-area>#wif-str2 {
+            position: relative;
+            display: block;
+            left: -27.25%;
+            top: -1%;
+            font-size: 0.77vw;
+            -webkit-transform: rotate(-180deg) !important;
+            -moz-transform: rotate(-180deg) !important;
+            -o-transform: rotate(-180deg) !important;
+            -ms-transform: rotate(-180deg) !important;
+            transform: rotate(-180deg) !important;
+        }
+    }
+}
