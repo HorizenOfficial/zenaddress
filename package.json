@@ -1,6 +1,6 @@
 {
-  "name": "zenaddress.org",
-  "homepage": "https://gniar.github.io/zenaddress.org",
+  "name": "zenaddress",
+  "homepage": "https://ZencashOfficial.github.io/zenaddress",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
