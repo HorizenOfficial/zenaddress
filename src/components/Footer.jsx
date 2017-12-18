@@ -13,7 +13,7 @@ export default class Footer extends Component {
                         </p>
                         <br />
                         <p>
-                            Sources are available <a href="https://github.com/ZencashOfficial/zenaddress.org">here</a>.
+                            Sources are available <a href="https://github.com/ZencashOfficial/zenaddress">here</a>.
                         </p>
                         <br />
                         <p>
