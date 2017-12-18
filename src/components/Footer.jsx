@@ -9,7 +9,7 @@ export default class Footer extends Component {
                 <Row>
                     <Col md={8} style={{padding:'10px 15px'}}>
                         <p>
-                            MAKE SURE YOU ARE ON <b>ZENADDRESS.ORG</b>
+                            MAKE SURE YOU ARE ON <b>ZENPAPERWALLET.COM</b>
                         </p>
                         <br />
                         <p>

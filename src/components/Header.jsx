@@ -9,7 +9,7 @@ export default class Header extends Component {
             <Navbar id="header" fluid={true}>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        ZenAddress.org
+                        ZenPaperWallet.com
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Navbar.Text>
