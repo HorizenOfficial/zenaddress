@@ -89,12 +89,12 @@ class Multisig extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Col md={3}>
+                    <Col md={1}>
                         <Button onClick={() => this.genAddress()}>
                             Generate
                         </Button>
                     </Col>
-                    <Col md={3}>
+                    <Col md={1}>
                         <Button onClick={window.print}>
                             Print
                         </Button>
@@ -103,7 +103,7 @@ class Multisig extends Component {
                 <hr />
                 {this.state.addr ? (
                     <Row className="r2">
-                        <Col md={6} className="max-width">
+                        <Col md={4} className="max-width">
                             <h1 style={{color:'green'}}>Public</h1>
                             <h3>Zen Address</h3>
                             <div>
@@ -111,31 +111,31 @@ class Multisig extends Component {
                                     bgColor="#FFFFFF"
                                     fgColor="#000000"
                                     level="L"
-                                    style={{ width: 256 }}
+                                    style={{ width: 200 }}
                                     value={this.state.addr}
                                 />
                             </div>
-                            <div>
+                            <div className="zentabcode">
                                 {this.state.addr}
                             </div>
                         </Col>
-                        <Col md={6} className="max-width">
+                        <Col md={8} className="max-width"> 
                             <h1 style={{color:'red'}}>Secret</h1>
                             <div>
                                 <b>Redeem Script : </b> {this.state.redeem}
                             </div>
-                            <div>
-                                <h3>Private Keys</h3>
+                            <div className="row">
+                                <h3 className="multisigsubtitle">Private Keys</h3>
                                 {this.state.priv.map((priv) => (
-                                    <div>
+                                    <div className="col-md-4">
                                         <QRCode
                                             bgColor="#FFFFFF"
                                             fgColor="#000000"
                                             level="L"
-                                            style={{ width: 128 }}
+                                            style={{ width: 150 }}
                                             value={priv}
                                         />
-                                        <p>{priv}</p>
+                                        <p className="multisigsecretcode">{priv}</p>
                                     </div>
                                 ))}
                             </div>

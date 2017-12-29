@@ -91,7 +91,7 @@ class Single extends Component {
                         </FormGroup>
                     </Col>
 
-                    <Col md={4}>
+                    <Col md={2}>
                         <Button onClick={this.state.type === 'T' ?
                             () => this.genTAddress()
                             : () => this.genZAddress()}
@@ -99,7 +99,7 @@ class Single extends Component {
                             Generate a new wallet
                         </Button>
                     </Col>
-                    <Col md={4}>
+                    <Col md={2}>
                         <Button onClick={window.print}>
                             Print
                         </Button>
@@ -108,7 +108,7 @@ class Single extends Component {
                 <hr />
                 {this.state.addr ? (
                     <Row className="r2">
-                        <Col md={6} className="max-width">
+                        <Col md={3} className="max-width singleTabs col-sm-offset-3">
                             <h1 style={{color:'green'}}>Public</h1>
                             <h3>Zen Address</h3>
                             <div>
@@ -116,15 +116,15 @@ class Single extends Component {
                                     bgColor="#FFFFFF"
                                     fgColor="#000000"
                                     level="L"
-                                    style={{ width: 256 }}
+                                    style={{ width: 200 }}
                                     value={this.state.addr}
                                 />
                             </div>
-                            <div>
+                            <div className="zentabcode">
                                 {this.state.addr}
                             </div>
                         </Col>
-                        <Col md={6} className="max-width">
+                        <Col md={3} className="max-width singleTabs">
                             <h1 style={{color:'red'}}>Secret</h1>
                             <div>
                                 {this.state.type === 'T' ? (
@@ -137,11 +137,11 @@ class Single extends Component {
                                         bgColor="#FFFFFF"
                                         fgColor="#000000"
                                         level="L"
-                                        style={{ width: 256 }}
+                                        style={{ width: 200 }}
                                         value={this.state.wif}
                                     />
                                 </div>
-                                <p>{this.state.wif}</p>
+                                <div className="zentabcode">{this.state.wif}</div>
                             </div>
                             <p>{this.getZpriv()}</p>
                         </Col>
@@ -165,9 +165,9 @@ class Single extends Component {
                             <b>Check your balance</b> by entering your Zen address on one of these explorers :
                         </p>
                         <ul style={{listStyleType: 'none'}}>
-                            <li>https://explorer.zensystem.io/</li>
-                            <li>http://explorer.zenmine.pro/insight/</li>
-                            <li>https://explorer.zen-solutions.io/</li>
+                            <li><a href="https://explorer.zensystem.io/">https://explorer.zensystem.io/</a></li>
+                            <li><a href="http://explorer.zenmine.pro/insight/">http://explorer.zenmine.pro/insight/</a></li>
+                            <li><a href="https://explorer.zen-solutions.io/">https://explorer.zen-solutions.io/</a></li>
                         </ul>
                         <p>
                             <b>To spend your ZEN</b> you can download the <a href='https://github.com/ZencashOfficial/zencash-swing-wallet-ui/releases'>Zencash Swing Wallet</a> and import your private key to the p2p client wallet.
