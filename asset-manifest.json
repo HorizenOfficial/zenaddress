@@ -1,9 +1,10 @@
 {
-  "main.css": "static/css/main.b3ec6d1b.css",
-  "main.css.map": "static/css/main.b3ec6d1b.css.map",
-  "main.js": "static/js/main.11277a31.js",
-  "main.js.map": "static/js/main.11277a31.js.map",
-  "static/media/bg.jpg": "static/media/bg.a123b674.jpg",
+  "main.css": "static/css/main.10915fc8.css",
+  "main.css.map": "static/css/main.10915fc8.css.map",
+  "main.js": "static/js/main.87c944ee.js",
+  "main.js.map": "static/js/main.87c944ee.js.map",
+  "static/media/bg.jpg": "static/media/bg.4b34b20a.jpg",
+  "static/media/logo_full.png": "static/media/logo_full.0fd1dd57.png",
   "static/media/zen_paper_back.png": "static/media/zen_paper_back.768806c4.png",
   "static/media/zen_paper_front.png": "static/media/zen_paper_front.bf2fc586.png",
   "static/media/zen_paper_front_sm.png": "static/media/zen_paper_front_sm.9f40b06b.png"
