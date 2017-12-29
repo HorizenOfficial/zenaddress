@@ -1,87 +1,91 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col }   from 'react-bootstrap';
 
+import website from "../website.png";
+import blogger from "../blogger.png";
+import forum from "../forum.png";
+import github from "../github.png";
+import facebook from "../facebook.png";
+import twitter from "../twitter.png";
+import telegram from "../telegram.png";
+import discord from "../discord.png";
+import bitcointalk from "../bitcointalk.png";
+import youtube from "../youtube.png";
+import reddit from "../reddit.png";
+
 export default class Footer extends Component {
     render() {
         return (
             <Grid fluid={true} id="footer">
                 <br />
                 <Row>
-                    <Col md={8} style={{padding:'10px 15px'}}>
-                        <p>
-                            MAKE SURE YOU ARE ON <b>ZENPAPERWALLET.COM</b>
-                        </p>
-                        <br />
-                        <p>
-                            Sources are available <a href="https://github.com/ZencashOfficial/zenaddress">here</a>.
-                        </p>
-                        <br />
-                        <p>
-                            If you have any question or suggestion, email me Gniar at protonmail.com or find me on slack/discord/telegram @ Gniar.
-                        </p>
-                    </Col>
-                    <Col md={4}>
-                        <h4>Get involved</h4>
-                        <ul>
+                    <Col md={12} className="footerSocialWrap">
+                        <ul className="footerSocial">
                             <li>
                                 <a href="https://zensystem.io">
-                                    website
+                                    <img src={website} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://blog.zensystem.io/">
-                                    blog
+                                    <img src={blogger} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://forum.zensystem.io/">
-                                    forum
+                                    <img src={forum} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://github.com/ZencashOfficial">
-                                    github
+                                    <img src={github} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.facebook.com/zencash/">
-                                    facebook
+                                    <img src={facebook} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://twitter.com/zencashofficial">
-                                    twitter
+                                    <img src={twitter} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://t.me/zencash">
-                                    telegram
+                                   <img src={telegram} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://discordapp.com/invite/9kXQFHx">
-                                    discord
+                                    <img src={discord} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://bitcointalk.org/index.php?topic=2047435.0">
-                                    bitcointalk
+                                    <img src={bitcointalk} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.youtube.com/channel/UCQ0v_lUnZHIKUQUXJzfgqOg">
-                                    youtube
+                                    <img src={youtube} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.reddit.com/r/ZenSys/">
-                                    reddit
+                                    <img src={reddit} />
                                 </a>
                             </li>
                         </ul>
                     </Col>
+                    <Col md={12}>
+                        <p className="footerCopyright">
+                            If you have any question or suggestion, email me
+                            <a href="https://gmail.com/Gniar@protonmail.com">Gniar@protonmail.com</a> or find me on slack/discord/telegram
+                             <a href="https://twitter.com/@ Gniar.">@Gniar</a>.
+                        </p>
+                    </Col>
                 </Row>
-                <br />
             </Grid>
         );
     }

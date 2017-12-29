@@ -1,25 +1,26 @@
 import React, { Component }     from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
+import logoFull from "../logo_full.png";
+
 export default class Header extends Component {
 
     render() {
         return (
 
-            <Navbar id="header" fluid={true}>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        ZenPaperWallet.com
-                    </Navbar.Brand>
-                </Navbar.Header>
-                <Navbar.Text>
-                    paper wallet generator
-                </Navbar.Text>
-                <Nav pullRight>
-                    <NavItem href="https://myzenwallet.io/">WEB WALLET</NavItem>
-                    <Navbar.Text>|</Navbar.Text>
-                    <NavItem href="http://getzen.cash/">FAUCET</NavItem>
-                </Nav>
+            <Navbar id="header" className="zenHeader" fluid={true}>
+                <div className="container">
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                            <img src={logoFull} />
+                        </Navbar.Brand>
+                    </Navbar.Header>
+                    <Nav pullRight>
+                        <NavItem href="https://myzenwallet.io/" className="headerLeftOption">WEB WALLET</NavItem>
+                        <Navbar.Text>|</Navbar.Text>
+                        <NavItem href="http://getzen.cash/" className="headerLeftOption">FAUCET</NavItem>
+                    </Nav>
+                </div>
             </Navbar>
 
         );

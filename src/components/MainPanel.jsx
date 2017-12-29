@@ -37,11 +37,13 @@ export default class MainPanel extends Component {
             <Tabs id="nav" bsStyle="pills" justified
                 activeKey={this.state.activeNavTab}
                 onSelect={(key) => this.setState({activeNavTab: key})}
+                className = "zenTabsWrap"
             >
                 {this.getCategories().map((category) => (
                     <Tab key={category.id}
                         eventKey={category.id}
                         title={category.title}
+                        className="zenTabs clearfix"
                     >
                         {this.renderContent(category.id)}
                     </Tab>
@@ -53,13 +55,15 @@ export default class MainPanel extends Component {
 
     render() {
         return (
-            <Grid id="body">
-                <Row>
-                    <Col sm={12}>
-                        {this.renderNav()}
-                    </Col>
-                </Row>
-            </Grid>
+            <div id="body">
+                <Grid>
+                    <Row>
+                        <Col sm={12}>
+                            {this.renderNav()}
+                        </Col>
+                    </Row>
+                </Grid>
+            </div>
         );
     }
 }

@@ -101,7 +101,7 @@ class Bulk extends Component {
             <Col md={12} id="Bulk">
                 <hr />
                 <Row className="r1">
-                    <Col md={2}>
+                    <Col md={3}>
                         <FormGroup controlId="startIndex"
                             bsSize="sm"
                         >
@@ -112,7 +112,7 @@ class Bulk extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Col md={2}>
+                    <Col md={3}>
                         <FormGroup controlId="nbRows"
                             bsSize="sm"
                         >
@@ -123,7 +123,7 @@ class Bulk extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Col md={2}>
+                    <Col md={3}>
                         <FormGroup>
                             <Radio name="radioGroup"
                             onMouseDown={() => this.handleCheckRadio('T')}
@@ -138,7 +138,7 @@ class Bulk extends Component {
                             </Radio>
                         </FormGroup>
                     </Col>
-                    <Col md={3}>
+                    <Col md={1}>
                         <Button onClick={this.state.type === 'T' ?
                             () => this.genTAddress()
                             : () => this.genZAddress()}
@@ -146,7 +146,7 @@ class Bulk extends Component {
                             Generate
                         </Button>
                     </Col>
-                    <Col md={3}>
+                    <Col md={1}>
                         <Button onClick={window.print}>
                             Print
                         </Button>

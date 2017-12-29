@@ -41,12 +41,12 @@ class Paper extends Component {
             <Col md={12} id="Paper">
                 <hr />
                 <Row className="r1">
-                    <Col md={6}>
+                    <Col md={2}>
                         <Button onClick={() => this.genAddress()}>
                             Generate a new wallet
                         </Button>
                     </Col>
-                    <Col md={6}>
+                    <Col md={2}>
                         <Button onClick={window.print}>
                             Print
                         </Button>
