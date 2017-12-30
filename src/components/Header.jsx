@@ -12,7 +12,7 @@ export default class Header extends Component {
                 <div className="container">
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <img src={logoFull} />
+                            <img src={logoFull} alt="logo"/>
                         </Navbar.Brand>
                     </Navbar.Header>
                     <Nav pullRight>

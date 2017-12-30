@@ -7,19 +7,21 @@ import Bulk     from "./Bulk";
 import Details  from "./Details";
 import Multisig from "./Multisig";
 import Paper    from "./Paper";
+import Entropy  from "./Entropy";
 
 export default class MainPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeNavTab: 0
+            entropy: "",
+            activeTab: 0
         };
     }
 
     getCategories() {
         return [
             { id: 0,    title: "Single Address",        content: Single },
-            { id: 1,    title: "Paper",             content: Paper },
+            { id: 1,    title: "Paper",                 content: Paper },
             { id: 2,    title: "Brain Wallet",          content: Brain },
             { id: 3,    title: "Multisig Wallet",       content: Multisig },
             { id: 4,    title: "Bulk Wallet",           content: Bulk },
@@ -27,12 +29,27 @@ export default class MainPanel extends Component {
         ];
     }
 
-    renderContent(id) {
-        const Comp = this.getCategories()[id].content;
-        return <Comp />;
+    setEntropy(bool){
+      this.setState({entropy: bool});
+    }
+    getEntropy(){
+      return this.state.entropy;
     }
 
-    renderNav() {
+    tabContent(id) {
+      const Comp = this.getCategories()[id].content;
+
+      if( !this.state.entropy && Comp !== Details ){
+        return(<Entropy
+          setEntropy={this.setEntropy.bind(this)}
+          getEntropy={this.getEntropy.bind(this)}
+        />);
+      }
+
+      return <Comp />;
+    }
+
+    renderMainPanel() {
         return (
             <Tabs id="nav" bsStyle="pills" justified
                 activeKey={this.state.activeNavTab}
@@ -45,7 +62,7 @@ export default class MainPanel extends Component {
                         title={category.title}
                         className="zenTabs clearfix"
                     >
-                        {this.renderContent(category.id)}
+                        {this.tabContent(category.id)}
                     </Tab>
                 ))}
             </Tabs>
@@ -59,7 +76,7 @@ export default class MainPanel extends Component {
                 <Grid>
                     <Row>
                         <Col sm={12}>
-                            {this.renderNav()}
+                            {this.renderMainPanel()}
                         </Col>
                     </Row>
                 </Grid>
