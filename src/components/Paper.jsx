@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
 import zencashjs            from 'zencashjs';
-import axios                from 'axios';
 
 import art1 from '../zen_paper_front.png';
 import art2 from '../zen_paper_back.png';
@@ -19,20 +18,16 @@ class Paper extends Component {
     }
 
     genAddress() {
+        const priv      = zencashjs.address
+            .mkPrivKey(this.props.entropy + new Date().getTime());
+        const privWIF   = zencashjs.address.privKeyToWIF(priv, true);
+        const pubKey    = zencashjs.address.privKeyToPubKey(priv, true);
+        const znAddr    = zencashjs.address.pubKeyToAddr(pubKey);
 
-        axios.get(
-            'https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h'
-        ).then(res => {
-            const priv      = zencashjs.address.mkPrivKey(res.data);
-            const privWIF   = zencashjs.address.privKeyToWIF(priv, true);
-            const pubKey    = zencashjs.address.privKeyToPubKey(priv, true);
-            const znAddr    = zencashjs.address.pubKeyToAddr(pubKey);
-
-            this.setState({
-                priv: priv,
-                wif: privWIF,
-                addr: znAddr
-            });
+        this.setState({
+            priv: priv,
+            wif: privWIF,
+            addr: znAddr
         });
     }
 

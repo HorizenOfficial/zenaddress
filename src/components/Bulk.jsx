@@ -2,8 +2,6 @@ import React, { Component }     from 'react';
 import { Row, Col, Button, FormGroup, ControlLabel, FormControl, Table, Radio }
                                 from 'react-bootstrap';
 import { address, zaddress }    from 'zencashjs';
-import axios                    from 'axios';
-
 
 class Bulk extends Component {
     constructor(props) {
@@ -34,59 +32,52 @@ class Bulk extends Component {
         const _state    = this.state;
         _state.pairs    = [];
 
-        axios.get(
-            'https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h'
-        ).then(res => {
-            for(let i = 0 ; i < this.state.nbRows ; i++) {
-                const priv      = address.mkPrivKey(res.data + i);
-                const privWIF   = address.privKeyToWIF(priv, true);
-                const pubKey    = address.privKeyToPubKey(priv, true);
-                const znAddr    = address.pubKeyToAddr(pubKey);
+        for(let i = 0 ; i < this.state.nbRows ; i++) {
+            const priv      = address
+                .mkPrivKey(this.props.entropy + new Date().getTime() + i);
+            const privWIF   = address.privKeyToWIF(priv, true);
+            const pubKey    = address.privKeyToPubKey(priv, true);
+            const znAddr    = address.pubKeyToAddr(pubKey);
 
-                const _pairs = this.state.pairs;
-                _pairs.push({
-                    index: _state.startIndex + i,
-                    priv: priv,
-                    wif: privWIF,
-                    addr: znAddr
-                });
+            const _pairs = this.state.pairs;
+            _pairs.push({
+                index: _state.startIndex + i,
+                priv: priv,
+                wif: privWIF,
+                addr: znAddr
+            });
 
-                _state.pairs = _pairs;
-                this.setState(_state);
-            }
-        });
+            _state.pairs = _pairs;
+            this.setState(_state);
+        }
     }
 
     genZAddress() {
         const _state    = this.state;
         _state.pairs    = [];
 
-        axios.get(
-            'https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h'
-        ).then(res => {
-            for(let i = 0 ; i < this.state.nbRows ; i++) {
-                const z_secretKey   = zaddress
-                                        .mkZSecretKey(res.data + i);
-                const spendingKey   = zaddress
-                                        .zSecretKeyToSpendingKey(z_secretKey);
-                const a_pk          = zaddress
-                                        .zSecretKeyToPayingKey(z_secretKey);
-                const pk_enc        = zaddress
-                                        .zSecretKeyToTransmissionKey(z_secretKey);
-                const Zaddress      = zaddress.mkZAddress(a_pk, pk_enc);
+        for(let i = 0 ; i < this.state.nbRows ; i++) {
+            const z_secretKey   = zaddress
+                .mkZSecretKey(this.props.entropy + new Date().getTime() + i);
+            const spendingKey   = zaddress
+                                    .zSecretKeyToSpendingKey(z_secretKey);
+            const a_pk          = zaddress
+                                    .zSecretKeyToPayingKey(z_secretKey);
+            const pk_enc        = zaddress
+                                    .zSecretKeyToTransmissionKey(z_secretKey);
+            const Zaddress      = zaddress.mkZAddress(a_pk, pk_enc);
 
-                const _pairs = this.state.pairs;
-                _pairs.push({
-                    index: _state.startIndex + i,
-                    priv: z_secretKey,
-                    wif: spendingKey,
-                    addr: Zaddress
-                });
+            const _pairs = this.state.pairs;
+            _pairs.push({
+                index: _state.startIndex + i,
+                priv: z_secretKey,
+                wif: spendingKey,
+                addr: Zaddress
+            });
 
-                _state.pairs = _pairs;
-                this.setState(_state);
-            }
-        });
+            _state.pairs = _pairs;
+            this.setState(_state);
+        }
     }
 
     handleCheckRadio(type) {

@@ -5,43 +5,43 @@ from 'react-bootstrap';
 import {randomBytes} from 'crypto-browserify';
 
 class Entropy extends Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props);
-        this.state = {
-          random: randomBytes(1),
-          isStillSeeding: true,
-          seedLimit: 200 + Math.floor(randomBytes(12)[11]),
-          seedCount: 0,
-          lastInputTime: new Date().getTime(),
-          seedPoints: []
-        };
-    }
+        //const entropy = this.props.getEntropy();
+        //this.state = entropy;
+    }*/
 
     seed(e){
-        const timeStamp = new Date().getTime();
-        const timeDiff = timeStamp - this.state.lastInputTime;
-        // seeding is over now we generate and display the address
-        if (this.state.seedCount === this.state.seedLimit) {
-            this.state.seedCount++;
+        const _state = this.props.getEntropy();
 
-            console.log(this.state.random.toString('hex'));
-            this.removePoints();
+        const timeStamp = new Date().getTime();
+        const timeDiff = timeStamp - _state.lastInputTime;
+        // seeding is over now we generate and display the address
+        if (_state.seedCount === _state.seedLimit) {
+          _state.seedCount++;
+
+          _state.isStillSeeding = false;
+          this.removePoints();
+          _state.random = _state.random.toString('hex');
+          this.props.setEntropy(_state);
         }
         // seed mouse position X and Y when mouse movements are greater than 40ms apart.
-        else if ((this.state.seedCount < this.state.seedLimit)
+        else if ((_state.seedCount < _state.seedLimit)
                 && e
                 && (timeDiff) > 40) {
 
-            this.setState({random: this.mergeTypedArrays(
-                this.state.random,
+            _state.random = this.mergeTypedArrays(
+                _state.random,
                 randomBytes(((timeDiff + e.clientX + e.clientY) % 65535 ) | 0)
-            )});
+            );
 
             this.showPoint(e.clientX, e.clientY);
 
-            this.state.seedCount++;
-            this.setState({lastInputTime: timeStamp});
+            _state.seedCount++;
+            _state.lastInputTime = timeStamp;
         }
+
+        this.props.setEntropy(_state);
     }
 
     mergeTypedArrays(a, b) {
@@ -66,47 +66,61 @@ class Entropy extends Component {
     }
 
     seedKeyPress(e) {
-        if (this.state.seedCount === this.state.seedLimit) {
-            this.state.seedCount++;
+        const _state = this.props.getEntropy();
 
-            console.log(this.state.random.toString('hex'));
+        if (_state.seedCount === _state.seedLimit) {
+            _state.seedCount++;
+
+            _state.isStillSeeding = false;
             this.removePoints();
+            _state.random = _state.random.toString('hex');
+            this.props.setEntropy(_state);
         }
-        else if ((this.state.seedCount < this.state.seedLimit) && e.key) {
+        else if ((_state.seedCount < _state.seedLimit) && e.key) {
+
             const timeStamp = new Date().getTime();
-            const timeDiff = timeStamp - this.state.lastInputTime;
+            const timeDiff = timeStamp - _state.lastInputTime;
             const keyCode = e.key.charCodeAt(0);
 
-            this.setState({random: this.mergeTypedArrays(
-                this.state.random,
+            _state.random = this.mergeTypedArrays(
+                _state.random,
                 randomBytes(((timeDiff + keyCode) % 65535 ) | 0)
-            )});
+            );
 
-            this.state.seedCount++;
-            this.setState({lastInputTime: timeStamp});
+            _state.seedCount++;
+            _state.lastInputTime = timeStamp;
         }
+
+        this.props.setEntropy(_state);
     }
 
     getSeedingProgress(){
+      const _state = this.props.getEntropy();
       return(
-        Math.trunc((this.state.seedCount * 100) / this.state.seedLimit)
+        Math.trunc((_state.seedCount * 100) / _state.seedLimit)
       );
     }
 
     showPoint(x, y) {
+        const _state = this.props.getEntropy();
+
         var div = document.createElement("div");
         div.setAttribute("class", "seedpoint");
         div.style.top = y + "px";
         div.style.left = x + "px";
         document.body.appendChild(div);
-        this.state.seedPoints.push(div);
+
+        _state.seedPoints.push(div);
+        this.props.setEntropy(_state);
     }
 
     removePoints() {
-        for (let i = 0; i < this.state.seedPoints.length; i++) {
-            document.body.removeChild(this.state.seedPoints[i]);
+        const _state = this.props.getEntropy();
+        for (let i = 0; i < _state.seedPoints.length; i++) {
+            document.body.removeChild(_state.seedPoints[i]);
         }
-        this.setState({seedPoints: []});
+        _state.seedPoints = [];
+        this.props.setEntropy(_state);
     }
 
     render() {

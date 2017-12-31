@@ -1,5 +1,6 @@
 import React, { Component }             from 'react';
 import { Tabs, Tab, Row, Col, Grid }    from 'react-bootstrap';
+import {randomBytes}                    from 'crypto-browserify';
 
 import Single   from "./Single";
 import Brain    from "./Brain";
@@ -13,7 +14,14 @@ export default class MainPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            entropy: "",
+            entropy: {
+              random: randomBytes(1),
+              isStillSeeding: true,
+              seedLimit: 200 + Math.floor(randomBytes(12)[11]),
+              seedCount: 0,
+              lastInputTime: new Date().getTime(),
+              seedPoints: []
+            },
             activeTab: 0
         };
     }
@@ -29,8 +37,8 @@ export default class MainPanel extends Component {
         ];
     }
 
-    setEntropy(bool){
-      this.setState({entropy: bool});
+    setEntropy(x){
+      this.setState({entropy: x});
     }
     getEntropy(){
       return this.state.entropy;
@@ -39,14 +47,19 @@ export default class MainPanel extends Component {
     tabContent(id) {
       const Comp = this.getCategories()[id].content;
 
-      if( !this.state.entropy && Comp !== Details ){
-        return(<Entropy
-          setEntropy={this.setEntropy.bind(this)}
-          getEntropy={this.getEntropy.bind(this)}
-        />);
+      if( Comp === Details ){
+        return <Comp />;
       }
+      if( this.state.entropy.isStillSeeding ){
 
-      return <Comp />;
+          return(<Entropy
+            setEntropy={this.setEntropy.bind(this)}
+            getEntropy={this.getEntropy.bind(this)}
+          />);
+
+      } else {
+        return <Comp entropy={this.state.entropy.random} />;
+      }
     }
 
     renderMainPanel() {
