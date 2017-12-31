@@ -3,8 +3,6 @@ import { Row, Col, Button, FormGroup, ControlLabel, Radio, FormControl }
                             from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
 import zencashjs            from 'zencashjs';
-import axios                from 'axios';
-
 
 class Brain extends Component {
     constructor(props) {
@@ -25,45 +23,41 @@ class Brain extends Component {
     }
 
     vanity(word, it) {
-        axios.get(
-            'https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h'
-        ).then(res => {
-            console.log("Vanity Gen");
-            let priv, wif, c_wif, pub, c_pub, addr, c_addr;
+        console.log("Vanity Gen");
+        let priv, wif, c_wif, pub, c_pub, addr, c_addr;
 
-            console.log("START---->");
-            for(let i = 0 ; i < it ; i++) {
-                if((i*100/it) % 10 === 0) console.log((i*100/it) + "%");
+        console.log("START---->");
+        for(let i = 0 ; i < it ; i++) {
+            if((i*100/it) % 10 === 0) console.log((i*100/it) + "%");
 
-                priv      = zencashjs.address.mkPrivKey(res.data + i);
+            priv      = zencashjs.address.mkPrivKey(this.props.entropy + i);
 
-                pub    = zencashjs.address.privKeyToPubKey(priv);
-                addr    = zencashjs.address.pubKeyToAddr(pub);
+            pub    = zencashjs.address.privKeyToPubKey(priv);
+            addr    = zencashjs.address.pubKeyToAddr(pub);
 
-                c_pub    = zencashjs.address.privKeyToPubKey(priv, true);
-                c_addr    = zencashjs.address.pubKeyToAddr(c_pub);
+            c_pub    = zencashjs.address.privKeyToPubKey(priv, true);
+            c_addr    = zencashjs.address.pubKeyToAddr(c_pub);
 
-                if (addr.search("zn" + word) !== -1
-                ||  c_addr.search("zn" + word) !== -1) {
-                    console.log("MATCH !");
-                    break;
-                }
+            if (addr.search("zn" + word) !== -1
+            ||  c_addr.search("zn" + word) !== -1) {
+                console.log("MATCH !");
+                break;
             }
-            console.log("<------END");
+        }
+        console.log("<------END");
 
-            wif     = zencashjs.address.privKeyToWIF(priv);
-            c_wif    = zencashjs.address.privKeyToWIF(priv, true);
-            this.setState({
-                priv: priv,
-                wif: wif,
-                c_wif: c_wif,
-                pub: pub,
-                c_pub: c_pub,
-                addr: addr,
-                c_addr: c_addr
-            });
-            console.log(this.state);
+        wif     = zencashjs.address.privKeyToWIF(priv);
+        c_wif    = zencashjs.address.privKeyToWIF(priv, true);
+        this.setState({
+            priv: priv,
+            wif: wif,
+            c_wif: c_wif,
+            pub: pub,
+            c_pub: c_pub,
+            addr: addr,
+            c_addr: c_addr
         });
+        console.log(this.state);
     }
 
     genTAddress() {

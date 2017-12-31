@@ -23,57 +23,57 @@ export default class Footer extends Component {
                         <ul className="footerSocial">
                             <li>
                                 <a href="https://zensystem.io">
-                                    <img src={website} />
+                                    <img src={website} alt="website"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://blog.zensystem.io/">
-                                    <img src={blogger} />
+                                    <img src={blogger} alt="blogger"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://forum.zensystem.io/">
-                                    <img src={forum} />
+                                    <img src={forum} alt="forum"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://github.com/ZencashOfficial">
-                                    <img src={github} />
+                                    <img src={github} alt="github"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.facebook.com/zencash/">
-                                    <img src={facebook} />
+                                    <img src={facebook} alt="facebook"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://twitter.com/zencashofficial">
-                                    <img src={twitter} />
+                                    <img src={twitter} alt="twitter"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://t.me/zencash">
-                                   <img src={telegram} />
+                                   <img src={telegram} alt="telegram"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://discordapp.com/invite/9kXQFHx">
-                                    <img src={discord} />
+                                    <img src={discord} alt="discord"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://bitcointalk.org/index.php?topic=2047435.0">
-                                    <img src={bitcointalk} />
+                                    <img src={bitcointalk} alt="bitcointalk"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.youtube.com/channel/UCQ0v_lUnZHIKUQUXJzfgqOg">
-                                    <img src={youtube} />
+                                    <img src={youtube} alt="youtube"/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.reddit.com/r/ZenSys/">
-                                    <img src={reddit} />
+                                    <img src={reddit} alt="reddit"/>
                                 </a>
                             </li>
                         </ul>

@@ -3,7 +3,6 @@ import { Row, Col, Button, FormGroup, Radio }
                             from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
 import zencashjs            from 'zencashjs';
-import axios                from 'axios';
 
 class Single extends Component {
     constructor(props) {
@@ -17,41 +16,34 @@ class Single extends Component {
     }
 
     genTAddress() {
+        const priv      = zencashjs.address
+            .mkPrivKey(this.props.entropy + new Date().getTime());
+        const privWIF   = zencashjs.address.privKeyToWIF(priv, true);
+        const pubKey    = zencashjs.address.privKeyToPubKey(priv, true);
+        const znAddr    = zencashjs.address.pubKeyToAddr(pubKey);
 
-        axios.get(
-            'https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h'
-        ).then(res => {
-            const priv      = zencashjs.address.mkPrivKey(res.data);
-            const privWIF   = zencashjs.address.privKeyToWIF(priv, true);
-            const pubKey    = zencashjs.address.privKeyToPubKey(priv, true);
-            const znAddr    = zencashjs.address.pubKeyToAddr(pubKey);
-
-            this.setState({
-                priv: priv,
-                wif: privWIF,
-                addr: znAddr
-            });
+        this.setState({
+            priv: priv,
+            wif: privWIF,
+            addr: znAddr
         });
     }
 
     genZAddress() {
-        axios.get(
-            'https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h'
-        ).then(res => {
-            const z_secretKey   = zencashjs.zaddress.mkZSecretKey(res.data);
-            const spendingKey   = zencashjs.zaddress
-                                    .zSecretKeyToSpendingKey(z_secretKey);
-            const a_pk          = zencashjs.zaddress
-                                    .zSecretKeyToPayingKey(z_secretKey);
-            const pk_enc        = zencashjs.zaddress
-                                    .zSecretKeyToTransmissionKey(z_secretKey);
-            const Zaddress      = zencashjs.zaddress.mkZAddress(a_pk, pk_enc);
+        const z_secretKey   = zencashjs.zaddress
+            .mkZSecretKey(this.props.entropy + new Date().getTime());
+        const spendingKey   = zencashjs.zaddress
+                                .zSecretKeyToSpendingKey(z_secretKey);
+        const a_pk          = zencashjs.zaddress
+                                .zSecretKeyToPayingKey(z_secretKey);
+        const pk_enc        = zencashjs.zaddress
+                                .zSecretKeyToTransmissionKey(z_secretKey);
+        const Zaddress      = zencashjs.zaddress.mkZAddress(a_pk, pk_enc);
 
-            this.setState({
-                priv: z_secretKey,
-                wif: spendingKey,
-                addr: Zaddress
-            });
+        this.setState({
+            priv: z_secretKey,
+            wif: spendingKey,
+            addr: Zaddress
         });
     }
 

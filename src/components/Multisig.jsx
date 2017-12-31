@@ -3,8 +3,6 @@ import { Row, Col, Button, FormGroup, ControlLabel, FormControl }
                                 from 'react-bootstrap';
 import { QRCode }               from 'react-qr-svg';
 import { address }              from 'zencashjs';
-import axios                    from 'axios';
-
 
 class Multisig extends Component {
     constructor(props) {
@@ -41,23 +39,21 @@ class Multisig extends Component {
             addr: ''
         };
 
-        axios.get(
-            'https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h'
-        ).then(res => {
-            for(let i = 0 ; i < this.state.max ; i++) {
-                _state.priv.push(address.mkPrivKey(res.data + i));
-            }
+        for(let i = 0 ; i < _state.max ; i++) {
+            _state.priv.push( address.mkPrivKey(
+                this.props.entropy + new Date().getTime() + i
+            ));
+        }
 
-            _state.redeem   = address.mkMultiSigRedeemScript(
-                _state.priv.map((x) => address.privKeyToPubKey(x, true)),
-                _state.min,
-                _state.max
-            );
+        _state.redeem   = address.mkMultiSigRedeemScript(
+            _state.priv.map((x) => address.privKeyToPubKey(x, true)),
+            _state.min,
+            _state.max
+        );
 
-            _state.addr = address.multiSigRSToAddress(_state.redeem)
+        _state.addr = address.multiSigRSToAddress(_state.redeem);
 
-            this.setState(_state);
-        });
+        this.setState(_state);
     }
 
     render() {
@@ -119,7 +115,7 @@ class Multisig extends Component {
                                 {this.state.addr}
                             </div>
                         </Col>
-                        <Col md={8} className="max-width"> 
+                        <Col md={8} className="max-width">
                             <h1 style={{color:'red'}}>Secret</h1>
                             <div>
                                 <b>Redeem Script : </b> {this.state.redeem}
