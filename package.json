@@ -2,7 +2,6 @@
   "name": "zenpaperwallet.com",
   "homepage": "https://zenpaperwallet.com",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "axios": "^0.17.0",
     "react": "^15.6.1",
