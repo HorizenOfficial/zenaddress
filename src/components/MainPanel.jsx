@@ -1,6 +1,6 @@
 import React, { Component }             from 'react';
 import { Tabs, Tab, Row, Col, Grid }    from 'react-bootstrap';
-import {randomBytes}                    from 'crypto-browserify';
+import { randomBytes }                  from 'crypto-browserify';
 
 import Single   from "./Single";
 import Brain    from "./Brain";
@@ -44,6 +44,17 @@ export default class MainPanel extends Component {
       return this.state.entropy;
     }
 
+    selectTab(key) {
+        this.setState({ activeNavTab: key });
+
+        const Comp = this.getCategories()[key].content;
+        if (Comp === Details) {
+            document.querySelectorAll('.seedpoint').forEach(d => d.style.visibility = 'hidden');
+        } else {
+            document.querySelectorAll('.seedpoint').forEach(d => d.style.visibility = 'visible');
+        }
+    }
+
     tabContent(id) {
       const Comp = this.getCategories()[id].content;
 
@@ -51,7 +62,6 @@ export default class MainPanel extends Component {
         return <Comp />;
       }
       if( this.state.entropy.isStillSeeding ){
-
           return(<Entropy
             setEntropy={this.setEntropy.bind(this)}
             getEntropy={this.getEntropy.bind(this)}
@@ -66,7 +76,7 @@ export default class MainPanel extends Component {
         return (
             <Tabs id="nav" bsStyle="pills" justified
                 activeKey={this.state.activeNavTab}
-                onSelect={(key) => this.setState({activeNavTab: key})}
+                onSelect={this.selectTab.bind(this)}
                 className = "zenTabsWrap"
             >
                 {this.getCategories().map((category) => (
