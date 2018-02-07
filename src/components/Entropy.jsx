@@ -143,9 +143,6 @@ class Entropy extends Component {
                             />
                         </FormGroup>
                       </p>
-                      <p>
-                          You can choose how many people has a key, and how many keys are needed to manage the funds.
-                      </p>
                   </Col>
               </Row>
           </Col>

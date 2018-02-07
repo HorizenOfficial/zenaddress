@@ -33,7 +33,7 @@ class Details extends Component {
             if(!this.state.input) throw(this.state.input);
 
             if(this.state.input[0] === '5'
-            || this.state.input[0] === 'J'
+            || this.state.input[0] === 'L'
             || this.state.input[0] === 'K') {
                 privWIF = this.state.input;
                 priv    = zencashjs.address.WIFToPrivKey(privWIF);
