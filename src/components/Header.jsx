@@ -19,6 +19,8 @@ export default class Header extends Component {
                         <NavItem href="https://myzenwallet.io/" className="headerLeftOption">WEB WALLET</NavItem>
                         <Navbar.Text>|</Navbar.Text>
                         <NavItem href="http://getzen.cash/" className="headerLeftOption">FAUCET</NavItem>
+                        <Navbar.Text>|</Navbar.Text>
+                        <NavItem href="https://support.zencash.com/" className="headerLeftOption">SUPPORT</NavItem>
                     </Nav>
                 </div>
             </Navbar>
