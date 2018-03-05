@@ -99,6 +99,10 @@ class Details extends Component {
             return("private key: " + this.state.priv);
     }
 
+    getExplorerAddress() {
+        return("https://explorer.zensystem.io/address/" + this.state.addr);
+    }
+
     render() {
         return (
             <Col md={12} id="Details">
@@ -190,6 +194,21 @@ class Details extends Component {
                 <hr />
                 <Row className="r3">
                     <Col>
+                        {this.state.addr && this.state.type === 'T' ? (
+                            <p>
+                                <Button bsStyle="primary"
+                                href={this.getExplorerAddress()}
+                                target="_blank">
+                                Check my balance !
+                                </Button>
+                            </p>
+                        ) : this.state.addr && this.state.type === 'Z' ? (
+                            <p>
+                                This is a Z-address (shielded address) meaning your balance is hidden. To check your balance import your Spending Key into the <a href='https://github.com/ZencashOfficial/zencash-swing-wallet-ui/releases'>Zencash Swing Wallet</a>
+                            </p>
+                        ) : (
+                            <p></p>
+                        )}
                         <p>
                             Entering your private key here allows you to regenerate your Zen Address and print your wallet if you wish.
                         </p>
