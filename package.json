@@ -3,6 +3,7 @@
   "homepage": "https://zenpaperwallet.com",
   "version": "0.1.0",
   "dependencies": {
+    "hoek": "^4.2.1",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.1",
