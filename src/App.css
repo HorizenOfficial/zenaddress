@@ -379,6 +379,12 @@ hr{
 }
 
 @media print {
+    .screen-only {
+        display: none;
+    }
+    .r2, .page-break-after {
+        page-break-after: always;
+    }
     @page {
         size: landscape;
         margin: 0%;
@@ -429,18 +435,9 @@ hr{
     .multisigsecretcode{
         margin: 0 auto;
     }
+
     #Bulk{
         margin-top: 20px;
-    }
-    #art-area>#addr-QR {
-        position: relative;
-        display: block;
-        left: 31%;
-        top: 21%;
-    }
-    #art-area>#addr-QR>svg {
-        width: 12vw !important;
-        height: 12vw !important;
     }
 
     #layout {
@@ -460,13 +457,20 @@ hr{
         top: 0;
     }
 
+    .bulk-paper>#addr-QR {
+        position: relative;
+        display: block;
+        left: 62%;
+        top: -75%;
+    }
     #art-area>#addr-QR {
         position: relative;
         display: block;
-        left: 33%;
+        left: 31%;
         top: 21%;
     }
-    #art-area>#addr-QR>svg {
+    #art-area>#addr-QR>svg,
+    .bulk-paper>#addr-QR>svg {
         width: 12vw !important;
         height: 12vw !important;
     }

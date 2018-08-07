@@ -2,6 +2,10 @@ import React, { Component }     from 'react';
 import { Row, Col, Button, FormGroup, ControlLabel, FormControl, Table, Radio }
                                 from 'react-bootstrap';
 import { address, zaddress }    from 'zencashjs';
+import { QRCode }               from 'react-qr-svg';
+
+import art1 from '../zen_paper_front.png';
+import art2 from '../zen_paper_back.png';
 
 class Bulk extends Component {
     constructor(props) {
@@ -10,6 +14,7 @@ class Bulk extends Component {
             startIndex: 1,
             nbRows: 1,
             type: 'T',
+            paper: true,
             pairs: []
         };
     }
@@ -48,6 +53,7 @@ class Bulk extends Component {
             });
 
             _state.pairs = _pairs;
+            _state.type = "T";
             this.setState(_state);
         }
     }
@@ -76,6 +82,7 @@ class Bulk extends Component {
             });
 
             _state.pairs = _pairs;
+            _state.type = "Z";
             this.setState(_state);
         }
     }
@@ -87,12 +94,20 @@ class Bulk extends Component {
         });
     }
 
+    handlePrint(paper) {
+        this.setState({
+            paper: paper
+        }, function() {
+            window.print();
+        });
+    }
+
     render() {
         return (
             <Col md={12} id="Bulk">
                 <hr />
                 <Row className="r1">
-                    <Col md={3}>
+                    <Col md={2}>
                         <FormGroup controlId="startIndex"
                             bsSize="sm"
                         >
@@ -103,7 +118,7 @@ class Bulk extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Col md={3}>
+                    <Col md={2}>
                         <FormGroup controlId="nbRows"
                             bsSize="sm"
                         >
@@ -138,8 +153,13 @@ class Bulk extends Component {
                         </Button>
                     </Col>
                     <Col md={1}>
-                        <Button onClick={window.print}>
+                        <Button onClick={() => this.handlePrint(false)}>
                             Print
+                        </Button>
+                    </Col>
+                    <Col md={1}>
+                        <Button onClick={() => this.handlePrint(true)}>
+                            Paper Print
                         </Button>
                     </Col>
                 </Row>
@@ -180,6 +200,52 @@ class Bulk extends Component {
                 ) : (
                     <Row className="r2 no-padding"></Row>
                 )}
+
+                {this.state.paper ?
+                    this.state.pairs.map((pair) => (
+                        <div className="page-break-after print-only bulk-paper">
+                            <img alt="art1" id="art1" src={art1} />
+                            <img alt="art2" id="art2" src={art2} />
+
+                            <span id="addr-QR">
+                                <QRCode
+                                    bgColor="#FFFFFF"
+                                    fgColor="#000000"
+                                    level="L"
+                                    style={{ width: 96 }}
+                                    value={pair.addr}
+                                />
+                            </span>
+
+                            <b id="addr-str1">
+                                {pair.addr}
+                            </b>
+                            <b id="addr-str2">
+                                {pair.addr}
+                            </b>
+
+                            <span id="wif-QR">
+                                <QRCode
+                                    bgColor="#FFFFFF"
+                                    fgColor="#000000"
+                                    level="L"
+                                    style={{ width: 96 }}
+                                    value={pair.wif}
+                                />
+                            </span>
+
+                            <b id="wif-str1">
+                                {pair.wif}
+                            </b>
+                            <b id="wif-str2">
+                                {pair.wif}
+                            </b>
+                        </div>
+                    ))
+                :
+                    null
+                }
+
                 <hr />
                 <Row className="r3">
                     <Col>
