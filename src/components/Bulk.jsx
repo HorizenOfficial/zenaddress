@@ -252,6 +252,9 @@ class Bulk extends Component {
                         <p>
                             Generating several Zencash addresses at once can be useful for accepting ZEN payments on your website. You can import these addresses into your database and use a different address for each payment you receive. You can easily add more addresses into your database by choosing the right start index to complete your list of addresses.
                         </p>
+                        <p>
+                          <b>Image Quality:</b> print this wallet with Chrome for a better quality. Some elements can be misplaced with Firefox
+                        </p>
                     </Col>
                 </Row>
             </Col>

@@ -80,9 +80,12 @@ export default class Footer extends Component {
                     </Col>
                     <Col md={12}>
                         <p className="footerCopyright">
-                            If you have any question or suggestion, email me
-                            <a href="https://gmail.com/Gniar@protonmail.com">Gniar@protonmail.com</a> or find me on slack/discord/telegram
-                             <a href="https://twitter.com/@ Gniar.">@Gniar</a>.
+                            Addresses and Keys are generated client-side.
+                            This project is <a href="https://github.com/ZencashOfficial/zenaddress">opensource</a> under MIT licence.
+                        </p>
+                        <p className="footerCopyright">
+                            If you have any question or suggestion, email me <b>Gniar@pm.me</b> or find me on
+                            slack/discord/telegram <b>@Gniar</b>.
                         </p>
                     </Col>
                 </Row>
