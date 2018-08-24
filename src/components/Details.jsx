@@ -204,7 +204,7 @@ class Details extends Component {
                             </p>
                         ) : this.state.addr && this.state.type === 'Z' ? (
                             <p>
-                                This is a Z-address (shielded address) meaning your balance is hidden. To check your balance import your Spending Key into the <a href='https://github.com/ZencashOfficial/zencash-swing-wallet-ui/releases'>Zencash Swing Wallet</a>
+                                This is a Z-address (shielded address) meaning your balance is hidden. To check your balance import your Spending Key into the <a href='https://github.com/ZencashOfficial/zencash-swing-wallet-ui/releases'>ZEN Swing Wallet</a>
                             </p>
                         ) : (
                             <p></p>

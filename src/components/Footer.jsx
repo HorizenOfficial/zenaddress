@@ -22,17 +22,17 @@ export default class Footer extends Component {
                     <Col md={12} className="footerSocialWrap">
                         <ul className="footerSocial">
                             <li>
-                                <a href="https://zensystem.io">
+                                <a href="https://horizen.global">
                                     <img src={website} alt="website"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://blog.zensystem.io/">
+                                <a href="https://blog.horizen.global/">
                                     <img src={blogger} alt="blogger"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://forum.zensystem.io/">
+                                <a href="https://forum.horizen.global/">
                                     <img src={forum} alt="forum"/>
                                 </a>
                             </li>
@@ -42,22 +42,22 @@ export default class Footer extends Component {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/zencash/">
+                                <a href="https://www.facebook.com/horizenglobal/">
                                     <img src={facebook} alt="facebook"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/zencashofficial">
+                                <a href="https://twitter.com/horizenglobal/">
                                     <img src={twitter} alt="twitter"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://t.me/zencash">
+                                <a href="https://horizen.global/invite/telegram">
                                    <img src={telegram} alt="telegram"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://discordapp.com/invite/9kXQFHx">
+                                <a href="https://discordapp.com/invite/Hu5mQxR">
                                     <img src={discord} alt="discord"/>
                                 </a>
                             </li>
@@ -72,7 +72,7 @@ export default class Footer extends Component {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.reddit.com/r/ZenSys/">
+                                <a href="https://www.reddit.com/r/Horizen/">
                                     <img src={reddit} alt="reddit"/>
                                 </a>
                             </li>

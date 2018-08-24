@@ -93,8 +93,14 @@ a:hover{
     color: #1B2F59;
 }
 .zenHeader .navbar-brand{
-    height: 65px;
+    margin: -20px;
+    padding: 0;
+    position: relative;
+    height: 100px;
 }
+
+
+
 .navbar-header {
     /*background: #69ffbd none repeat scroll 0 0;*/
     position: relative;

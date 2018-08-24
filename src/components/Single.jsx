@@ -145,10 +145,10 @@ class Single extends Component {
                 <Row className="r3">
                     <Col>
                         <p>
-                            <b>A Zencash wallet</b> is as simple as a single pairing of a Zencash address with its corresponding Zencash private key. You can share your address to receive ZEN payments, however your private key is what allows you to unlock and manage your funds, keep it safe.
+                            <b>A ZEN wallet</b> is as simple as a single pairing of an address with its corresponding private key. You can share your address to receive ZEN payments, however your private key is what allows you to unlock and manage your funds, keep it safe.
                         </p>
                         <p>
-                            <b>To safeguard this wallet</b> you must print or otherwise record the Zencash address and private key. It is important to make a backup copy of the private key and store it in a safe location. This site does not have knowledge of your private key. If you leave/refresh the site or press the "Generate New Address" button then a new private key will be generated and the previously displayed private key will not be retrievable. Your Zencash private key should be kept a secret. Whomever you share the private key with has access to spend all the ZEN associated with that address. If you print your wallet then store it in a zip lock bag to keep it safe from water. Treat a paper wallet like cash.
+                            <b>To safeguard this wallet</b> you must print or otherwise record the address and private key. It is important to make a backup copy of the private key and store it in a safe location. This site does not have knowledge of your private key. If you leave/refresh the site or press the "Generate New Address" button then a new private key will be generated and the previously displayed private key will not be retrievable. Your private key should be kept a secret. Whomever you share the private key with has access to spend all the ZEN associated with that address. If you print your wallet then store it in a zip lock bag to keep it safe from water. Treat a paper wallet like cash.
                         </p>
                         <p>
                             <b>Add funds</b> to this wallet by instructing others to send ZEN to your Zen address.
@@ -162,7 +162,7 @@ class Single extends Component {
                             <li><a href="https://explorer.zen-solutions.io/">https://explorer.zen-solutions.io/</a></li>
                         </ul>
                         <p>
-                            <b>To spend your ZEN</b> you can download the <a href='https://github.com/ZencashOfficial/zencash-swing-wallet-ui/releases'>Zencash Swing Wallet</a> and import your private key to the p2p client wallet.
+                            <b>To spend your ZEN</b> you can download the <a href='https://github.com/ZencashOfficial/zencash-swing-wallet-ui/releases'>ZEN Swing Wallet</a> and import your private key to the p2p client wallet.
                         </p>
                     </Col>
                 </Row>
