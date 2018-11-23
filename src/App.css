@@ -314,7 +314,7 @@ hr{
     }
 
     #art-area {
-        background-image: url("zen_paper_front_sm.png");
+        background-image: url("Horizen-Paper-Wallet-front.png");
         background-repeat: no-repeat;
         background-size: contain;
         width: 746px;
@@ -327,60 +327,26 @@ hr{
     #art-area>#addr-QR {
         position: relative;
         display: block;
-        left: 36.5%;
-        top: 31%;
+        left: -31.75%;
+        top: 36.66%;
     }
 
     #art-area>#wif-QR {
         position: relative;
         display: block;
-        left: -40%;
-        top: -23%;
+        left: 28%;
+        top: 4.44%;
     }
 
     #art-area>#addr-str1 {
         position: relative;
         display: block;
-        left: 33.5%;
-        top: 47.5%;
+        color: white !important;
+        left: -31.66%;
+        top: 47%;
         color: #1b2f59;
         font-weight: 900;
-        font-size: 0.66em;
-    }
-    #art-area>#addr-str2 {
-        position: relative;
-        display: block;
-        left: 33.5%;
-        top: -42.5%;
-
-        font-size: 0.66em;
-        -webkit-transform: rotate(-180deg);
-        -moz-transform: rotate(-180deg);
-        -o-transform: rotate(-180deg);
-        -ms-transform: rotate(-180deg);
-        transform: rotate(-180deg);
-    }
-
-    #art-area>#wif-str1 {
-        position: relative;
-        display: block;
-        left: -29.5%;
-        top: -16.5%;
-
-        font-size: 0.46em;
-    }
-    #art-area>#wif-str2 {
-        position: relative;
-        display: block;
-        left: -29.5%;
-        top: -83.5%;
-
-        font-size: 0.46em;
-        -webkit-transform: rotate(-180deg);
-        -moz-transform: rotate(-180deg);
-        -o-transform: rotate(-180deg);
-        -ms-transform: rotate(-180deg);
-        transform: rotate(-180deg);
+        font-size: 0.42em;
     }
 }
 
@@ -388,12 +354,15 @@ hr{
     .screen-only {
         display: none;
     }
-    .r2, .page-break-after {
-        page-break-after: always;
+    .page-break-after {
+        page-break-after: always !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     @page {
-        size: landscape;
-        margin: 0%;
+        size: portrait;
+        margin: 0% !important;
+        padding: 0% !important;
     }
     .container{
         width: 100%;
@@ -406,22 +375,6 @@ hr{
         display: none!important;
     }
 
-    #layout {
-        display: block;
-    }
-
-    #art1, #art2 {
-        width: 100% !important;
-        height: 100% !important;
-        margin: auto;
-    }
-
-    #art-area {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-    }
     .max-width{
         padding: 0;
         margin: 0px auto 20px auto;
@@ -470,14 +423,14 @@ hr{
     .bulk-paper>#addr-QR {
         position: absolute;
         display: block;
-        left: 76.5%;
-        top: 21%;
+        left: 15%;
+        top: 63.5%;
     }
     #art-area>#addr-QR {
         position: relative;
         display: block;
-        left: 31%;
-        top: 21%;
+        left: -26.5%;
+        top: 63.372%;
     }
     #art-area>#addr-QR>svg,
     .bulk-paper>#addr-QR>svg {
@@ -488,14 +441,14 @@ hr{
     .bulk-paper>#wif-QR {
         position: absolute;
         display: block;
-        left: 7.75%;
-        top: 21.3%;
+        left: 81.33%;
+        top: 63.5%;
     }
     #art-area>#wif-QR {
         position: relative;
         display: block;
-        left: -36.5%;
-        top: 11%;
+        left: 32.2%;
+        top: 47.25%;
     }
     #art-area>#wif-QR>svg,
     .bulk-paper>#wif-QR>svg {
@@ -505,10 +458,11 @@ hr{
 
     .bulk-paper>#addr-str1 {
         position: absolute;
+        color: white !important;
         display: block;
-        left: 70%;
-        top: 32.5%;
-        font-size: 1.1vw;
+        left: 10.88%;
+        top: 83.15%;
+        font-size: 1vw;
     }
     .bulk-paper>#addr-str2 {
         position: absolute;
@@ -525,8 +479,9 @@ hr{
     #art-area>#addr-str1 {
         position: relative;
         display: block;
-        left: 28.65%;
-        top: 24.3%;
+        color: white !important;
+        left: -26.25%;
+        top: 68.33%;
         font-size: 1.1vw;
     }
     #art-area>#addr-str2 {
@@ -580,6 +535,25 @@ hr{
         -ms-transform: rotate(-180deg) !important;
         transform: rotate(-180deg) !important;
     }
+
+    .simple-paper {
+      display: inline-block;
+      padding: 0px 6px 6px 6px;
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .simple-paper-address,
+    .simple-paper-privkey {
+      display: inline-block;
+      margin: 6px;
+    }
+
+    .paper-design>#addr-QR>svg,
+    .paper-design>#wif-QR>svg {
+        width: 10vw !important;
+        height: 10vw !important;
+    }
+
 
     @-moz-document url-prefix() {
         #art-area>#addr-QR {

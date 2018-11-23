@@ -3,8 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
 import zencashjs            from 'zencashjs';
 
-import art1 from '../zen_paper_front.png';
-import art2 from '../zen_paper_back.png';
+import art  from '../Horizen-Paper-Wallet-side-by-side.png';
 
 class Paper extends Component {
     constructor(props) {
@@ -54,12 +53,9 @@ class Paper extends Component {
 
                             <h2>Overview</h2>
 
-                            <img alt="art1"
+                            <img alt="art"
                             className="print-only"
-                            id="art1" src={art1} />
-                            <img alt="art2"
-                            className="print-only"
-                            id="art2" src={art2} />
+                            id="art" src={art} />
 
                             <div id="art-area">
 
@@ -69,15 +65,12 @@ class Paper extends Component {
                                         bgColor="#FFFFFF"
                                         fgColor="#000000"
                                         level="L"
-                                        style={{ width: 96 }}
+                                        style={{ width: 64 }}
                                         value={this.state.addr}
                                     />
                                 </span>
 
                                 <b id="addr-str1">
-                                    {this.state.addr}
-                                </b>
-                                <b id="addr-str2">
                                     {this.state.addr}
                                 </b>
 
@@ -86,17 +79,10 @@ class Paper extends Component {
                                         bgColor="#FFFFFF"
                                         fgColor="#000000"
                                         level="L"
-                                        style={{ width: 96 }}
+                                        style={{ width: 64 }}
                                         value={this.state.wif}
                                     />
                                 </span>
-
-                                <b id="wif-str1">
-                                    {this.state.wif}
-                                </b>
-                                <b id="wif-str2">
-                                    {this.state.wif}
-                                </b>
 
                             </div>
 

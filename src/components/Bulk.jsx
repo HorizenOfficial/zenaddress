@@ -4,8 +4,7 @@ import { Row, Col, Button, FormGroup, ControlLabel, FormControl, Table, Radio }
 import { address, zaddress }    from 'zencashjs';
 import { QRCode }               from 'react-qr-svg';
 
-import art1 from '../zen_paper_front.png';
-import art2 from '../zen_paper_back.png';
+import art  from '../Horizen-Paper-Wallet-side-by-side.png';
 
 class Bulk extends Component {
     constructor(props) {
@@ -15,6 +14,7 @@ class Bulk extends Component {
             nbRows: 1,
             type: 'T',
             paper: true,
+            design: false,
             pairs: []
         };
     }
@@ -33,9 +33,10 @@ class Bulk extends Component {
         this.setState(_state);
     }
 
-    genTAddress() {
+    genTAddress(print = false) {
         const _state    = this.state;
-        _state.pairs    = [];
+        let _pairs    = [];
+        _state.pairs    = _pairs;
 
         for(let i = 0 ; i < this.state.nbRows ; i++) {
             const priv      = address
@@ -44,23 +45,24 @@ class Bulk extends Component {
             const pubKey    = address.privKeyToPubKey(priv, true);
             const znAddr    = address.pubKeyToAddr(pubKey);
 
-            const _pairs = this.state.pairs;
             _pairs.push({
                 index: _state.startIndex + i,
                 priv: priv,
                 wif: privWIF,
                 addr: znAddr
             });
-
-            _state.pairs = _pairs;
-            _state.type = "T";
-            this.setState(_state);
         }
-    }
+        _state.pairs = _pairs;
+        _state.type = "T";
+        this.setState(_state, function(){
+            if(print) window.print();
+        });
+      }
 
-    genZAddress() {
+    genZAddress(print = false) {
         const _state    = this.state;
-        _state.pairs    = [];
+        let _pairs    = [];
+        _state.pairs    = _pairs;
 
         for(let i = 0 ; i < this.state.nbRows ; i++) {
             const z_secretKey   = zaddress
@@ -73,32 +75,36 @@ class Bulk extends Component {
                                     .zSecretKeyToTransmissionKey(z_secretKey);
             const Zaddress      = zaddress.mkZAddress(a_pk, pk_enc);
 
-            const _pairs = this.state.pairs;
             _pairs.push({
                 index: _state.startIndex + i,
                 priv: z_secretKey,
                 wif: spendingKey,
                 addr: Zaddress
             });
-
-            _state.pairs = _pairs;
-            _state.type = "Z";
-            this.setState(_state);
         }
-    }
-
-    handleCheckRadio(type) {
-        this.setState({
-            type: type,
-            pairs: []
+        _state.pairs = _pairs;
+        _state.type = "Z";
+        this.setState(_state, function(){
+          if(print) window.print();
         });
     }
 
+    handleCheckRadio(key, value) {
+        const _state = this.state;
+
+        _state[key] = value;
+        if(key === "type") _state.pairs = [];
+
+        this.setState(_state);
+    }
+
     handlePrint(paper) {
+        const type = paper ? 'T' : this.state.type;
         this.setState({
-            paper: paper
+            paper: paper,
+            type: type
         }, function() {
-            window.print();
+            type === 'T' ? this.genTAddress(true) : this.genZAddress(true);
         });
     }
 
@@ -131,14 +137,14 @@ class Bulk extends Component {
                     </Col>
                     <Col md={3}>
                         <FormGroup>
-                            <Radio name="radioGroup"
-                            onMouseDown={() => this.handleCheckRadio('T')}
+                            <Radio name="radioType"
+                            onMouseDown={() => this.handleCheckRadio("type", 'T')}
                             checked={this.state.type === 'T'} inline>
                                 T Address
                             </Radio>
                             <br />
-                            <Radio name="radioGroup"
-                            onMouseDown={() => this.handleCheckRadio('Z')}
+                            <Radio name="radioType"
+                            onMouseDown={() => this.handleCheckRadio("type", 'Z')}
                             checked={this.state.type === 'Z'} inline>
                                 Z Address
                             </Radio>
@@ -162,10 +168,25 @@ class Bulk extends Component {
                             Paper Print
                         </Button>
                     </Col>
+                    <Col md={1}>
+                    <FormGroup>
+                        <Radio name="radioDesign"
+                        onMouseDown={() => this.handleCheckRadio("design", false)}
+                        checked={this.state.design === false} inline>
+                            Paper Simple
+                        </Radio>
+                        <br />
+                        <Radio name="radioDesign"
+                        onMouseDown={() => this.handleCheckRadio("design", true)}
+                        checked={this.state.design === true} inline>
+                            Paper Design
+                        </Radio>
+                    </FormGroup>
+                    </Col>
                 </Row>
                 <hr />
                 {this.state.pairs[0] ? (
-                    <Row className="r2">
+                    <Row className="r2 page-break-after">
                         <Col className="max-width">
                             <Table striped bordered condensed hover>
                                 <thead>
@@ -202,10 +223,10 @@ class Bulk extends Component {
                 )}
 
                 {this.state.paper ?
+                this.state.design ?
                     this.state.pairs.map((pair) => (
-                        <div className="page-break-after print-only bulk-paper">
-                            <img alt="art1" id="art1" src={art1} />
-                            <img alt="art2" id="art2" src={art2} />
+                        <div className="print-only bulk-paper paper-design">
+                            <img alt="art" id="art" src={art} />
 
                             <span id="addr-QR">
                                 <QRCode
@@ -220,9 +241,6 @@ class Bulk extends Component {
                             <b id="addr-str1">
                                 {pair.addr}
                             </b>
-                            <b id="addr-str2">
-                                {pair.addr}
-                            </b>
 
                             <span id="wif-QR">
                                 <QRCode
@@ -233,16 +251,41 @@ class Bulk extends Component {
                                     value={pair.wif}
                                 />
                             </span>
-
-                            <b id="wif-str1">
-                                {pair.wif}
-                            </b>
-                            <b id="wif-str2">
-                                {pair.wif}
-                            </b>
                         </div>
                     ))
-                :
+
+                :   // simple (no design, just QR codes)
+                    this.state.pairs.map((pair) => (
+                        <div className="print-only simple-paper">
+                            <p>{pair.index}</p>
+                            <div className="simple-paper-address">
+                                <div>address</div>
+                                <div id="addr-QR">
+                                    <QRCode
+                                        bgColor="#FFFFFF"
+                                        fgColor="#000000"
+                                        level="L"
+                                        style={{ width: 96 }}
+                                        value={pair.addr}
+                                    />
+                                </div>
+                            </div>
+                            <div className="simple-paper-privkey">
+                                <div>private key</div>
+                                <div id="wif-QR">
+                                    <QRCode
+                                        bgColor="#FFFFFF"
+                                        fgColor="#000000"
+                                        level="L"
+                                        style={{ width: 96 }}
+                                        value={pair.wif}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    ))
+
+                :   // not paper
                     null
                 }
 
