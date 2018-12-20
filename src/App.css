@@ -335,19 +335,19 @@ hr{
     #art-area>#wif-QR {
         position: absolute;
         right: 86px;
-        top: 130px;
+        top: 124px;
     }
     #art-area>#wif-QR>svg {
         width: 103px;
     }
 
     #art-area>#addr-str {
-        font-size: 8.5px;
+        font-size: 8px;
         position: absolute;
-        left: 107px;
+        left: 86px;
         top: 275px;
-        width: 190px;
-        color: white;
+        width: 231px;
+        color: black;
     }
 
     #art-area>#wif-str {
@@ -356,11 +356,27 @@ hr{
         top: 248px;
         width: 148px;
         font-size: 7px;
-        color: white;
+        color: black;
     }
 }
 
 @media print {
+    body, html {
+        border: 1px solid white;
+        height: 99%;
+        page-break-after: avoid;
+        page-break-before: avoid;
+    }
+    #root {
+        page-break-after: avoid;
+        page-break-before: avoid;
+        max-width: 800px;
+        max-height: 800px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
     .screen-only {
         display: none;
     }
@@ -376,7 +392,7 @@ hr{
         padding: 0;
     }
     body{
-        position: relative;
+        /*position: relative;*/
     }
     #header, #footer, .nav, hr, .r1, .r3, h2{
         display: none!important;
@@ -439,32 +455,32 @@ hr{
     }
     #art-area>#wif-QR {
         position: absolute;
-        left: 81.2%;
-        top: 63.4%;
+        left: 81.25%;
+        top: 62.6%;
         width: 10.2%;
     }
     #art-area>#wif-QR>svg {
         width: 100%;
     }
     #art-area>#addr-str {
-        color: #fff!important;
+        color: black !important;
         -webkit-print-color-adjust: exact !important;
         color-adjust: exact !important;
         position: absolute;
-        top: 83.6%;
-        left: 11%;
-        width: 18.5%;
-        font-size: 9px;
+        top: 83.4%;
+        left: 8.8%;
+        width: 22.8%;
+        font-size: 6.5px;
     }
     #art-area>#wif-str {
-        color: #fff!important;
+        color: black !important;
         -webkit-print-color-adjust: exact !important;
         color-adjust: exact !important;
-        font-size: 8px;
         position: absolute;
-        top: 79.5%;
-        left: 79.5%;
-        width: 14%;
+        top: 79.3%;
+        left: 78.8%;
+        width: 15%;
+        font-size: 6.5px;
     }
 
 
