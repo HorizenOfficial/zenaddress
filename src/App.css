@@ -398,6 +398,10 @@ hr{
         display: none!important;
     }
 
+    .singleTabs {
+        width: 100%;
+    }
+
     #layout {
         display: block;
     }
