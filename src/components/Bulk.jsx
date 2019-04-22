@@ -4,8 +4,8 @@ import { Row, Col, Button, FormGroup, ControlLabel, FormControl, Table, Radio }
 import { address, zaddress }    from 'zencashjs';
 import { QRCode }               from 'react-qr-svg';
 
-import art1 from '../zen_paper_front.png';
-import art2 from '../zen_paper_back.png';
+import art1 from '../bg_wallet_front.png';
+import art2 from '../bg_wallet_back.png';
 
 class Bulk extends Component {
     constructor(props) {

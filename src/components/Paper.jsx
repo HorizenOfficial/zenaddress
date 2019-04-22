@@ -3,9 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
 import zencashjs            from 'zencashjs';
 
-// import art1 from '../zen_paper_front.png';
-// import art2 from '../zen_paper_back.png';
-import art3 from '../zen_paper_sidebyside.png';
+import art3 from '../bg_wallet_sidebyside.png';
 
 class Paper extends Component {
     constructor(props) {
