@@ -1,11 +1,11 @@
 {
-  "main.css": "static/css/main.3d05368a.css",
-  "main.css.map": "static/css/main.3d05368a.css.map",
-  "main.js": "static/js/main.f31c6bc8.js",
-  "main.js.map": "static/js/main.f31c6bc8.js.map",
-  "static\\media\\bg.jpg": "static/media/bg.fd7a2da2.jpg",
-  "static\\media\\logo_full.png": "static/media/logo_full.09e5ad83.png",
-  "static\\media\\zen_paper_back.png": "static/media/zen_paper_back.57e31348.png",
-  "static\\media\\zen_paper_front.png": "static/media/zen_paper_front.b2f9fe3f.png",
-  "static\\media\\zen_paper_sidebyside.png": "static/media/zen_paper_sidebyside.16b33629.png"
+  "main.css": "static/css/main.89936fc1.css",
+  "main.css.map": "static/css/main.89936fc1.css.map",
+  "main.js": "static/js/main.5b5cba97.js",
+  "main.js.map": "static/js/main.5b5cba97.js.map",
+  "static\\media\\bg_home.jpg": "static/media/bg_home.4b34b20a.jpg",
+  "static\\media\\bg_wallet_back.png": "static/media/bg_wallet_back.74dd88f4.png",
+  "static\\media\\bg_wallet_front.png": "static/media/bg_wallet_front.70e05b27.png",
+  "static\\media\\bg_wallet_sidebyside.png": "static/media/bg_wallet_sidebyside.27b17b30.png",
+  "static\\media\\logo_full.png": "static/media/logo_full.09e5ad83.png"
 }
