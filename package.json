@@ -10,12 +10,12 @@
     "lodash": "^4.17.5",
     "mime": "^1.4.1",
     "debug": "^3.1.0",
-    "react": "^15.6.1",
-    "react-bootstrap": "^0.31.3",
-    "react-dom": "^15.6.1",
-    "react-qr-svg": "^2.0.2",
-    "react-scripts": "^1.1.4",
-    "zencashjs": "^1.1.9-a"
+    "react": "^16.8.6",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.8.6",
+    "react-qr-svg": "^2.2.1",
+    "react-scripts": "^3.0.1",
+    "zencashjs": "^1.2.0"
   },
   "devDependencies": {
     "gh-pages": "^1.0.0"
@@ -26,5 +26,17 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
