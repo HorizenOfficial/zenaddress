@@ -84,8 +84,8 @@ export default class Footer extends Component {
                             This project is <a href="https://github.com/ZencashOfficial/zenaddress">opensource</a> under MIT licence.
                         </p>
                         <p className="footerCopyright">
-                            If you have any question or suggestion, email me <b>Gniar@pm.me</b> or find me on
-                            slack/discord/telegram <b>@Gniar</b>.
+                            For assistance please take a look in the <a href="https://horizenofficial.atlassian.net/wiki/spaces/ZEN/overview">ZenWiki</a>
+                            or contact the <a href="https://support.horizen.global">support</a>
                         </p>
                     </Col>
                 </Row>
