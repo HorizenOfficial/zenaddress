@@ -10,9 +10,9 @@
     "lodash": "^4.17.5",
     "mime": "^1.4.1",
     "debug": "^3.1.0",
-    "react": "^15.6.1",
+    "react": "^16.8.6",
     "react-bootstrap": "^0.31.3",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.8.6",
     "react-qr-svg": "^2.0.2",
     "react-scripts": "^1.1.4",
     "zencashjs": "^1.1.9-a"
