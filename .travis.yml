@@ -2,9 +2,6 @@ dist: bionic
 language: node_js
 notifications:
   email: false
-cache:
-  directories:
-  - node_modules
 install:
 - npm ci
 jobs:
