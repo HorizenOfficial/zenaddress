@@ -17,15 +17,11 @@
     "react-scripts": "^3.0.1",
     "zencashjs": "^1.2.0"
   },
-  "devDependencies": {
-    "gh-pages": "^2.0.1"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "npm run build&&gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
