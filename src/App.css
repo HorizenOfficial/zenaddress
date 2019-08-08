@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    background: black url("bg.jpg") no-repeat center center;
+    background: black url("bg_home_2.jpg") no-repeat center center;
     background-size: cover;
     /*font-family: 'Alegreya Sans', sans-serif;*/
     font-family: 'Lato', 'Source Sans Pro', sans-serif;
@@ -312,7 +312,7 @@ hr{
     }
 
     #art-area {
-        background-image: url("zen_paper_front.png");
+        background-image: url("bg_wallet_front.png");
         background-repeat: no-repeat;
         background-size: contain;
         width: 1000px;
