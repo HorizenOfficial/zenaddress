@@ -1,0 +1,22 @@
+dist: bionic
+language: node_js
+notifications:
+  email: false
+install:
+- npm ci
+jobs:
+  include:
+    - stage: "Build"
+      script:
+        - npm run build
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        fqdn: $CUSTOM_DOMAIN
+        keep_history: true
+        local_dir: ./build
+        on:
+          tags: true
+          branch: master
+          condition: $TRAVIS_TAG =~ ^release.*$
