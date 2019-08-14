@@ -14,7 +14,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.8.6",
     "react-qr-svg": "^2.2.1",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^3.1.1",
     "zencashjs": "^1.2.1"
   },
   "scripts": {
