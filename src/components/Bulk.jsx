@@ -165,10 +165,11 @@ class Bulk extends Component {
                 </Row>
                 <hr />
                 {this.state.pairs[0] ? (
-                    <Row className="r2">
-                        <Col className="max-width">
-                            <Table striped bordered condensed hover>
-                                <thead>
+                    <div>
+                        <Row className="r2 screen-only">
+                            <Col className="max-width">
+                                <Table striped bordered condensed hover>
+                                    <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Address</th>
@@ -179,8 +180,8 @@ class Bulk extends Component {
                                         }
                                         <th>Private Key</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     {this.state.pairs.map((pair) => (
                                         <tr>
                                             <td>{pair.index}</td>
@@ -188,20 +189,61 @@ class Bulk extends Component {
                                             <td>{pair.wif}</td>
                                             {
                                                 this.state.type === 'Z' ?
-                                                (<td>{pair.priv}</td>)
-                                                : null
+                                                    (<td>{pair.priv}</td>)
+                                                    : null
                                             }
                                         </tr>
                                     ))}
-                                </tbody>
-                            </Table>
-                        </Col>
-                    </Row>
+                                    </tbody>
+                                </Table>
+                            </Col>
+                        </Row>
+                        <div className="print-only">
+                            {this.state.pairs.map((pair) => (
+                                <div className="addr-item">
+                                    <Row>
+                                        <Col sm={6}>
+                                            <h3>Zen Address</h3>
+                                            <div>
+                                                <QRCode
+                                                    bgColor="#FFFFFF"
+                                                    fgColor="#000000"
+                                                    level="L"
+                                                    style={{ width: 200 }}
+                                                    value={pair.addr}
+                                                />
+                                            </div>
+                                            <div className="word-break-all">{pair.addr}</div>
+                                        </Col>
+                                        <Col sm={6}>
+                                            <div>
+                                                {this.state.type === 'T' ? (
+                                                    <h3>Private Key</h3>
+                                                ) : (
+                                                    <h3>Spending Key</h3>
+                                                )}
+                                                <div>
+                                                    <QRCode
+                                                        bgColor="#FFFFFF"
+                                                        fgColor="#000000"
+                                                        level="L"
+                                                        style={{ width: 200 }}
+                                                        value={pair.wif}
+                                                    />
+                                                </div>
+                                                <div className="word-break-all">{pair.wif}</div>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 ) : (
                     <Row className="r2 no-padding"></Row>
                 )}
 
-                {this.state.paper ?
+                {false && this.state.paper ?
                     this.state.pairs.map((pair) => (
                         <div className="page-break-after print-only bulk-paper">
                             <img alt="art1" id="art1" src={art1} />
