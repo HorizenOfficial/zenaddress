@@ -14,7 +14,7 @@ class Bulk extends Component {
             startIndex: 1,
             nbRows: 1,
             type: 'T',
-            paper: true,
+            paper: false,
             pairs: []
         };
     }
@@ -243,7 +243,7 @@ class Bulk extends Component {
                     <Row className="r2 no-padding"></Row>
                 )}
 
-                {false && this.state.paper ?
+                {this.state.paper ?
                     this.state.pairs.map((pair) => (
                         <div className="page-break-after print-only bulk-paper">
                             <img alt="art1" id="art1" src={art1} />
