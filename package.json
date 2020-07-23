@@ -3,7 +3,7 @@
   "homepage": "https://zenpaperwallet.com",
   "version": "0.2.1",
   "license": "MIT",
-  "repository": "https://github.com/ZencashOfficial/zenaddress",
+  "repository": "https://github.com/HorizenOfficial/zenaddress",
   "dependencies": {
     "debug": "^4.1.1",
     "growl": "^1.10.5",

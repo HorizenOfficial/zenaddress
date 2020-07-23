@@ -162,7 +162,7 @@ class Single extends Component {
                             <li><a href="https://explorer.zen-solutions.io/">https://explorer.zen-solutions.io/</a></li>
                         </ul>
                         <p>
-                            <b>To spend your ZEN</b> you can download the <a href='https://github.com/ZencashOfficial/zencash-swing-wallet-ui/releases'>ZEN Swing Wallet</a> and import your private key to the p2p client wallet.
+                            <b>To spend your ZEN</b> you can download the <a href='https://github.com/HorizenOfficial/zencash-swing-wallet-ui/releases'>ZEN Swing Wallet</a> and import your private key to the p2p client wallet.
                         </p>
                     </Col>
                 </Row>
