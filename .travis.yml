@@ -1,18 +1,24 @@
+os: linux
 dist: bionic
 language: node_js
+node_js:
+  - lts/erbium
+cache:
+  npm: false
 notifications:
   email: false
 install:
-- npm ci
+  - npm ci
 jobs:
   include:
     - stage: "Build"
       script:
         - npm run build
       deploy:
+        edge: true
         provider: pages
-        skip_cleanup: true
-        github_token: $GITHUB_TOKEN
+        cleanup: false
+        token: $GITHUB_TOKEN
         fqdn: $CUSTOM_DOMAIN
         keep_history: true
         local_dir: ./build
