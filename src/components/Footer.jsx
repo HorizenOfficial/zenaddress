@@ -37,7 +37,7 @@ export default class Footer extends Component {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/ZencashOfficial">
+                                <a href="https://github.com/HorizenOfficial">
                                     <img src={github} alt="github"/>
                                 </a>
                             </li>
@@ -81,7 +81,7 @@ export default class Footer extends Component {
                     <Col md={12}>
                         <p className="footerCopyright">
                             Addresses and Keys are generated client-side.
-                            This project is <a href="https://github.com/ZencashOfficial/zenaddress">opensource</a> under MIT licence.
+                            This project is <a href="https://github.com/HorizenOfficial/zenaddress">opensource</a> under MIT licence.
                         </p>
                         <p className="footerCopyright">
                             If you have any question or suggestion, email me <b>Gniar@pm.me</b> or find me on
