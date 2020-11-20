@@ -7,7 +7,8 @@ Download the source code and run:
 ```npm i```
 
 Optionally if not installed yet (node will give a warning in the previous step):
-'npm install typescript'
+
+```npm install typescript```
 
 ## If you get security warnings run:
 ```npm audit```
