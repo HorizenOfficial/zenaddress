@@ -11,7 +11,7 @@
     "lodash": "^4.17.15",
     "mime": "^2.4.4",
     "react": "^16.8.6",
-    "react-bootstrap": "^0.32.4",
+    "react-bootstrap": "^1.5.0",
     "react-dom": "^16.8.6",
     "react-qr-svg": "^2.2.1",
     "react-scripts": "^3.0.1",
