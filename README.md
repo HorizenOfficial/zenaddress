@@ -4,7 +4,7 @@ JavaScript Client-Side ZEN Wallet Generator using [zencashjs library](https://gi
 Download the source code and run:
 
 ## Install node packages:
-```npm i```
+```npm ci```
 
 Optionally if not installed yet (node will give a warning in the previous step):
 
