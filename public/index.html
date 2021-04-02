@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
     <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self' localhost:* %REACT_APP_CUSTOM_DOMAIN%;
-      script-src 'self' 'unsafe-inline' localhost:* %REACT_APP_CUSTOM_DOMAIN%;
-      style-src 'unsafe-inline' localhost:* https://fonts.googleapis.com %REACT_APP_CUSTOM_DOMAIN%;
-      font-src localhost:* https://fonts.gstatic.com %REACT_APP_CUSTOM_DOMAIN%;
-      img-src localhost:* data: https:
+      default-src 'none';
+      script-src 'self';
+      style-src 'self' https://fonts.googleapis.com;
+      base-uri 'self';
+      connect-src 'self';
+      font-src 'self' https://fonts.gstatic.com;
+      frame-src 'self';
+      img-src 'self' data:;
+      manifest-src 'self';
+      media-src 'self' data:;
+      worker-src 'self';
     ">
     <!--
       manifest.json provides metadata used when your web app is added to the
