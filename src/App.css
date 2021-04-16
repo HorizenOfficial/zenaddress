@@ -27,6 +27,11 @@ a:hover{
     text-decoration:none;
     opacity: 0.9;
 }
+
+.word-break-all {
+    word-break: break-all;
+}
+
 #layout {
     display: -webkit-box;
     display: -webkit-flex;
@@ -432,6 +437,18 @@ hr{
 
     #Bulk{
         margin-top: 20px;
+    }
+
+    #Bulk .addr-item {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid grey;
+        margin-bottom: 50px;
+        page-break-inside: avoid;
+    }
+
+    #Bulk .addr-item h3 {
+        margin-top: 0;
     }
 
     #layout {
