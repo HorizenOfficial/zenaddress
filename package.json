@@ -8,7 +8,7 @@
     "react": "^16.8.6",
     "react-bootstrap": "^0.33.1",
     "react-dom": "^16.8.6",
-    "react-qr-svg": "^2.2.1",
+    "react-qr-svg": "^2.4.0",
     "react-scripts": "^4.0.3",
     "zencashjs": "^1.2.7"
   },
