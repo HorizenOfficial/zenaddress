@@ -6,7 +6,7 @@
   "repository": "https://github.com/HorizenOfficial/zenaddress",
   "dependencies": {
     "react": "^16.8.6",
-    "react-bootstrap": "^0.33.1",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "^16.8.6",
     "react-qr-svg": "^2.2.1",
     "react-scripts": "^4.0.3",
